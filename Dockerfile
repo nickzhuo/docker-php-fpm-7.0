@@ -2,16 +2,16 @@
 ## PHP-FPM 7.0
 ##
 FROM centos:7
-MAINTAINER "cytopia" <cytopia@everythingcli.org>
+MAINTAINER "nICKZHUO" <sidewindermax@hotmail.com>
 
 
 ##
 ## Labels
 ##
 LABEL \
-	name="cytopia's PHP-FPM 7.0 Image" \
+	name="Nickzhuo's PHP-FPM 7.0 Image" \
 	image="php-fpm-7.0" \
-	vendor="cytopia" \
+	vendor="artsky" \
 	license="MIT" \
 	build-date="2016-10-24"
 

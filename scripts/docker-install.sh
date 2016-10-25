@@ -1,7 +1,7 @@
 #!/bin/sh -eu
 
 ###
-### Variables
+### 变量
 ###
 PHP_FPM_POOL_CONF="/etc/php-fpm.d/www.conf"
 PHP_FPM_CONF="/etc/php-fpm.conf"
@@ -50,7 +50,7 @@ run() {
 ###
 ### Adding Users
 ###
-print_headline "1. Adding Users"
+print_headline "1. 新增用户"
 run "groupadd -g ${MY_GID} -r ${MY_GROUP}"
 run "adduser ${MY_USER} -u ${MY_UID} -M -s /sbin/nologin -g ${MY_GROUP}"
 
@@ -59,9 +59,11 @@ run "adduser ${MY_USER} -u ${MY_UID} -M -s /sbin/nologin -g ${MY_GROUP}"
 ###
 ### Adding Repositories
 ###
-print_headline "2. Adding Repository"
-run "yum -y install epel-release"
-run "rpm -ivh http://rpms.famillecollet.com/enterprise/remi-release-7.rpm"
+print_headline "2. 增加源"
+run "wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm"
+run "wget https://rpms.remirepo.net/enterprise/remi-release-7.rpm"
+run "rpm -Uvh remi-release-7.rpm epel-release-latest-7.noarch.rpm"
+
 run "yum-config-manager --enable remi"
 run "yum-config-manager --disable remi-php55"
 run "yum-config-manager --disable remi-php56"
@@ -73,7 +75,7 @@ run "yum-config-manager --disable remi-php71"
 ###
 ### Updating Packages
 ###
-print_headline "3. Updating Packages Manager"
+print_headline "3. 升级系统"
 run "yum clean all"
 run "yum -y check"
 run "yum -y update"
@@ -85,7 +87,7 @@ run "yum -y update"
 ###
 ### (postfix provides /usr/sbin/sendmail)
 ###
-print_headline "4. Installing Packages"
+print_headline "4. 安装模块"
 run "yum -y install \
 	php \
 	php-cli \
