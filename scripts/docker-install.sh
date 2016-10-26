@@ -88,7 +88,7 @@ run "yum -y update"
 ###
 ### (postfix provides /usr/sbin/sendmail)
 ###
-print_headline "4. 安装模块"
+print_headline "4. 安装模块，定制化"
 run "yum -y install \
 	php \
 	php-cli \
@@ -114,20 +114,17 @@ run "yum -y install \
 	php-xml \
 	php-xmlrpc \
 	\
-	php-pecl-imagick \
 	php-pecl-uploadprogress \
-	php-pecl-xdebug \
 	\
 	postfix\
 	"
-# 	php-magickwand \
 
 
 
 ###
 ### Configure php.ini
 ###
-print_headline "5. Configure php.ini"
+print_headline "5. 配置 php.ini"
 
 # Fix fix_pathinfo (security precaution for php-fpm)
 run "sed -i'' 's/^;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/g' /etc/php.ini"
@@ -183,5 +180,5 @@ run "yum -y install socat"
 ###
 ### Cleanup unecessary packages
 ###
-print_headline "10. Cleanup unecessary packages"
+print_headline "10. 清除零时文件"
 run "yum -y autoremove"

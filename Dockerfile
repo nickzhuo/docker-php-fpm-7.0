@@ -1,7 +1,7 @@
 ##
 ## PHP-FPM 7.0
 ##
-FROM centos:7
+FROM centos:latest
 MAINTAINER "nICKZHUO" <sidewindermax@hotmail.com>
 
 
@@ -11,9 +11,9 @@ MAINTAINER "nICKZHUO" <sidewindermax@hotmail.com>
 LABEL \
 	name="Nickzhuo's PHP-FPM 7.0 Image" \
 	image="php-fpm-7.0" \
-	vendor="artsky" \
+	vendor="nICKZHUO" \
 	license="MIT" \
-	build-date="2016-10-24"
+	build-date="2016-10-26"
 
 
 ##
