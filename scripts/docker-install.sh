@@ -60,6 +60,7 @@ run "adduser ${MY_USER} -u ${MY_UID} -M -s /sbin/nologin -g ${MY_GROUP}"
 ### Adding Repositories
 ###
 print_headline "2. 增加源"
+run "yum -y install wget"
 run "wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm"
 run "wget https://rpms.remirepo.net/enterprise/remi-release-7.rpm"
 run "rpm -Uvh remi-release-7.rpm epel-release-latest-7.noarch.rpm"
